@@ -1,0 +1,14 @@
+ab526fc8a5f0d73500688117a75d5a59 *DESCRIPTION
+4818d0a532b72810f9d1581310cd4f4e *NAMESPACE
+798dc92e6e1d0efc9a22f7e3fa2520ed *R/Qhat.R
+03cf692107f8fd9e04aff9eb30d2617b *R/plrt.R
+c406c70657052a625e9900638b86e861 *R/simulatedata.R
+d026aaf52268d981fc7f24b3a28d0966 *R/teststatistics.R
+eeadbb759b1efc93e96c79f02f54f56d *R/tsc.test.R
+3699ec968c0a1494e4f5bb3ab7b98881 *R/variance.R
+25368025bc04709a87c088db4fe438c0 *data/file.RData
+a44f819737085b79bc99e0024a4fe96f *man/table.Rd
+6547257308b53beea5e5c2874355fe1a *man/tsc.test.Rd
+6f09dff2aa4480f9609558415512b371 *src/Interface_t_s1.cc
+d1d564f6f0a2be584f7c9b0d4fc18c42 *src/model_t_s1.cc
+3a360d7495ed4f6b793fb81620ddba25 *src/model_t_s1.h

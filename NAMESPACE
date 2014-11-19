@@ -1,0 +1,3 @@
+useDynLib(tsc)
+export(tsc.test)
+
