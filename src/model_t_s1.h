@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double function(vector<double> y1, vector<double> y2);
+double teststatistics(vector<double> y1, vector<double> y2);
 
 void test(int *ndouble1, int *ndouble2, double* y1, double* y2, double* test_statistics);
 

@@ -13,7 +13,7 @@
 //using namespace std;
 
 //function to get the proposed test-statistics
-double function(vector<double> y1, vector<double> y2)
+double teststatistics(vector<double> y1, vector<double> y2)
 {
    int n1 = y1.size();  //sample size of y1
    int n2 = y2.size();  //sample size of y2
@@ -108,7 +108,7 @@ double function(vector<double> y1, vector<double> y2)
 
     //now get the test statistics
 
-    double test_stat1=((double)(n1+n2)/2)*log(2*pi*exp(1)*variance)+partc_1+partd_1;
+    double test_stat1=((double)(n1+n2)/2)*log(2*pi*2.7182818284*variance)+partc_1+partd_1;
     // double test_stat1=((double)(n1+n2)/2)*log(2*pi*exp(1)*variance)+partc_1+test2;
     //double test_stat=pow(2*pi*exp(1)*variance,((double)(n1)/2))*pow(2*pi*exp(1)*variance,((double)(n2)/2))*partc_1*partd_1;
     //Rprintf("a=%lf,b=%lf\n",2*pi*exp(1)*variance,((double)(n1)/2));
@@ -132,7 +132,7 @@ void test (int *ndouble1, int *ndouble2, double* y1, double* y2, double* test_st
     for(int i = 0; i < *ndouble2; i++){
         v_y2.push_back(y2[i]);
     }
-    *test_statistics = function(v_y1,v_y2);
+    *test_statistics = teststatistics(v_y1,v_y2);
 
 }
 
@@ -148,7 +148,7 @@ double foo(vector<double> y1, vector<double> y2,int num)
   double log_sum=0;
   double t_2_sum=0;
   //double log_t_sum=0;
-  double test=function(y1,y2);  //get the test statistics of the data which the user provides to us
+  double test=teststatistics(y1,y2);  //get the test statistics of the data which the user provides to us
   //Monte Carlo simulation to get the 10000 test statistics from standard normal distribution
   vector<double>test11(num);
 
@@ -163,17 +163,17 @@ double foo(vector<double> y1, vector<double> y2,int num)
         for(unsigned j =0; j < y2.size(); j++){
         x2[j]=rnorm(0,1);
         }
-   double test1=function(x1,x2);
+   double test1=teststatistics(x1,x2);
 
-   test11[i-1]=function(x1,x2);
+   test11[i-1]=teststatistics(x1,x2);
 
    double t_2=test1*test1;
    //Rprintf("t_2=%lf\n",t_2);
    t_2_sum=t_2_sum+t_2;//sum(t^2)
    //Rprintf("t_2_sum=%lf\n",t_2_sum);
    if (test1>test) count=count+1; //get the the number of how many test1(10000) is less than test(from the user's data)
-        else  count=count;
-   t=t+test1;//sum(t)
+        else count=(int) count;
+    t=t+test1;//sum(t)
    //Rprintf("t=%lf\n",t);
 //   if (num1>num+100) num1=1;
   //    else num1=num1;
@@ -202,8 +202,8 @@ sort(test11.begin(),test11.end());
  for (int i=1; i <=num; i++)  {
  double num1=i/(num-i+0.0000001);
  if (num1>num+100) num1=1;
-      else num1=num1;
-    double log1=log(num1);
+      else num1=(double) num1;
+     double log1=log(num1);
  //   Rprintf("log1=%lf\n",log1);
   //  Rprintf("test11=%lf\n",test11[i-1]);
    double log_t=log1*test11[i-1];
@@ -227,7 +227,7 @@ double c0=log_sum/(num-1)-c1*(t/(num-1));
  //  Rprintf("logtest1=%lf\n",logtest1);
  if (count==num) p1=0.000001; //get the the number of how many test1(10000) is less than test(from the user's data)
    else  p1=double(count)/num;   //get the p-value
-  if ((p1==0) || (p1==1)) p=1/(1+exp(c0+c1*test));
+  if ((p1==0) || (p1==1)) p=1/(1+(double)exp(c0+c1*test));
      else p=p1;
  // Rprintf("num=%d\n",num);
   return p;
@@ -244,7 +244,7 @@ void vexler(int *ndouble1, int *ndouble2, double* y1, double* y2, double* mc , d
     for(int i = 0; i < *ndouble2; i++){
         v_y2.push_back(y2[i]);
     }
-    *test_statistics=function(v_y1,v_y2);
+    *test_statistics=teststatistics(v_y1,v_y2);
    // Rprintf("%d",(int)(*mc));
     *p_value = foo(v_y1,v_y2,(int)(*mc));
 
