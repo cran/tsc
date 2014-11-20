@@ -12,7 +12,7 @@
   \item{mc}{number of monte carlo simulations used to obtain p-value when method="DBEL" and t_m=1 (mc=3000 is default).}
 
 }
-\details{The function performs the two-sample comparison using exact procedures: for the LRT to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X~N, Y~N, E(X) is not = E(Y), Var(X) is not = Var(Y); for the LRT combined with the S-W test to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X, Y do not follow normal distributions, E(X) is not = E(Y), Var(X) is not = Var(Y); for the DBEL ratio test to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X, Y do not follow normal distributions, E(X) is not = E(Y), Var(X) is not = Var(Y) (Here X~N means X distributed following a normal distribution).
+\details{The function performs the two-sample comparison using exact procedures: for the LRT to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X~N, Y~N, E(X) is not = E(Y), or Var(X) is not = Var(Y); for the LRT combined with the S-W test to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X, or Y does not follow a normal distribution, or E(X) is not = E(Y), or Var(X) is not = Var(Y); for the DBEL ratio test to test H_0: X~N, Y~N, E(X)=E(Y), Var(X)=Var(Y) vs. H_1: X, or Y does not follow a normal distribution, or E(X) is not = E(Y), or Var(X) is not = Var(Y) (Here X~N means X distributed following a normal distribution).
 }
 \value{
   Returns a vector of length 2 with a value of the test statistic and the corresponding p-value.
